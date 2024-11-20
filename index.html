@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$CULTIV8 - Tu Tiên Memecoin To The Moon 🚀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00ff88;
+            --secondary: #ff00ff;
+            --accent: #ffff00;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+            --gradient: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .logo {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 6rem 2rem 2rem 2rem;
+            background: radial-gradient(circle at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+
+        /* Tokenomics Cards */
+        .tokenomics {
+            display: flex;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .token-stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            min-width: 250px;
+            flex: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .token-stat:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-family: 'Russo One', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Buy Button */
+        .buy-button {
+            background: var(--gradient);
+            border: none;
+            padding: 1.2rem 3.5rem;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            color: var(--dark);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .buy-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.6),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.05);
+        }
+
+        .buy-button:hover::before {
+            left: 100%;
+        }
+
+        /* Cultivation Roadmap */
+        .roadmap {
+            padding: 6rem 2rem;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .section-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cultivation-stages {
+            display: flex;
+            gap: 2rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stage {
+            background: rgba(0, 255, 136, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        .stage:hover {
+            transform: translateY(-10px);
+        }
+
+        .stage:hover::before {
+            opacity: 0.1;
+        }
+
+        .stage-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stage p {
+            position: relative;
+            z-index: 2;
+            opacity: 0.9;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .token-stat {
+                min-width: 100%;
+            }
+
+            .stage {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="logo">$CULTIV8</div>
+        <div class="nav-links">
+            <a href="#about">Tổng Quan</a>
+            <a href="#tokenomics">Pháp Bảo</a>
+            <a href="#roadmap">Công Pháp</a>
+            <a href="#community">Môn Phái</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <h1 class="hero-title">$CULTIV8</h1>
+        <h2 class="hero-subtitle">First Tu Tiên Memecoin</h2>
+        
+        <div class="tokenomics">
+            <div class="token-stat">
+                <div class="stat-value">888T</div>
+                <div class="stat-label">Tổng Linh Thạch</div>
+            </div>
+            <div class="token-stat">
+                <div class="stat-value">0%</div>
+                <div class="stat-label">Thuế Tu Luyện</div>
+            </div>
+            <div class="token-stat">
+                <div class="stat-value">69%</div>
+                <div class="stat-label">Đã Thiêu Hủy</div>
+            </div>
+            <div class="token-stat">
+                <div class="stat-value">88K</div>
+                <div class="stat-label">Số Đệ Tử</div>
+            </div>
+        </div>
+
+        <button class="buy-button" id="buyButton">
+            Tu Luyện Ngay
+        </button>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+        <h2 class="section-title">Lộ Trình Tu Tiên</h2>
+        
+        <div class="cultivation-stages">
+            <div class="stage">
+                <h3 class="stage-title">Luyện Khí Kỳ</h3>
+                <p>- Ra mắt Website<br>
+                   - Listing DEX<br>
+                   - 1000 Holder đầu tiên<br>
+                   - CG & CMC Listing</p>
+            </div>
+            
+            <div class="stage">
+                <h3 class="stage-title">Trúc Cơ Kỳ</h3>
+                <p>- Marketing đại quy mô<br>
+                   - CEX Tier 2 Listing<br>
+                   - 10,000 Holder<br>
+                   - Trending #1 Twitter</p>
+            </div>
+            
+            <div class="stage">
+                <h3 class="stage-title">Kim Đan Kỳ</h3>
+                <p>- CEX Tier 1 Listing<br>
+                   - 100,000 Holder<br>
+                   - DAO Governance<br>
+                   - Staking Platform</p>
+            </div>
+            
+            <div class="stage">
+                <h3 class="stage-title">Nguyên Anh Kỳ</h3>
+                <p>- $CULTIV8 Metaverse<br>
+                   - Cross-chain Bridge<br>
+                   - 1,000,000 Holder<br>
+                   - To The Moon! 🚀</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="price-ticker">
+            <span class="price">$0.0000888</span>
+            <span class="change">+888%</span>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+    </div>
+
+    <!-- Particles Effect -->
+    <div id="particles-js"></div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 88,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#00ff88'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00ff88',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Buy Button Effect
+        const buyButton = document.getElementById('buyButton');
+        buyButton.addEventListener('click', () => {
+            window.open('https://app.uniswap.org/', '_blank');
+        });
+
+        // Price Animation
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = `$${(progress * (end - start) + start).toFixed(7)}`;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Random Price Updates
+        setInterval(() => {
+            const priceElement = document.querySelector('.price');
+            const currentPrice = parseFloat(priceElement.innerHTML.replace('$', ''));
+            const newPrice = currentPrice * (1 + (Math.random() - 0.5) * 0.1);
+            animateValue(priceElement, currentPrice, newPrice, 1000);
+        }, 5000);
+    </script>
+</body>
+</html>
